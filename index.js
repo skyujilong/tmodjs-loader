@@ -27,7 +27,7 @@ module.exports = function () {
 
     //转化所有子模板为require
     var requires = output.requires.map(function (req) {
-        return "require('" + path.relative(path.dirname(output.sourceFile), req + extname).replace(/\\/g, '/') + "');";
+        return "require('./" + path.relative(path.dirname(output.sourceFile), req + extname).replace(/\\/g, '/') + "');";
     }).join('');
 
     clearTimeout(timer);
